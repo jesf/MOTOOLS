@@ -13,7 +13,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,15 +28,15 @@ import java.util.Locale;
 
 public class Establecer extends AppCompatActivity {
 
-    TextView Long,Lat,Dir;
+    TextView Long,Lat,Dir;Double LatG,LonG;String DirG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_establecer);
-        Long=(TextView)findViewById(R.id.LO);
-        Lat=(TextView)findViewById(R.id.LA);
-        Dir=(TextView)findViewById(R.id.Dir);
+        Long=(TextView)findViewById(R.id.NLO);
+        Lat=(TextView)findViewById(R.id.NLA);
+        Dir=(TextView)findViewById(R.id.SDir);
 
         LocationManager MUM = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Localizacion Local = new  Localizacion();
@@ -68,12 +75,12 @@ public class Establecer extends AppCompatActivity {
         public void onLocationChanged(Location loc) {
             // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
             // debido a la deteccion de un cambio de ubicacion
-
-
-            loc.getLatitude();
-            loc.getLongitude();
-            Lat.setText("Latitude: "+loc.getLatitude());
-            Long.setText("Longitud: "+loc.getLongitude());
+            //loc.getLatitude();
+            //loc.getLongitude();
+            LatG=loc.getLatitude();
+            LonG=loc.getLongitude();
+            Lat.setText(LatG.toString());
+            Long.setText(LonG.toString());
             this.mainActivity.setLocation(loc);
         }
 
@@ -110,12 +117,44 @@ public class Establecer extends AppCompatActivity {
                         loc.getLatitude(), loc.getLongitude(), 1);
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
-                    Dir.setText("Dirección:"+ DirCalle.getAddressLine(0));
+                    Dir.setText(""+ DirCalle.getAddressLine(0));
+                    DirG=Dir.toString();
                 }
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    UsuarioSQLiteHelper db1=new UsuarioSQLiteHelper(this,"DBUbi",null,1);
+    public void eventEst(View view){
+        if(DirG.length()>0){
+            db1.abrirBD();
+            db1.InsertReg(LatG,LonG);
+            db1.cerrarBD();
+            Toast.makeText(this,"Ubicación establecida correctamente",Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
+        else{
+            Toast.makeText(this,"Esperando ubicación",Toast.LENGTH_SHORT).show();
+        }
+        this.finish();
+
+    }
+    UsuarioSQLiteHelper db2=new UsuarioSQLiteHelper(this,"DBAlert",null,1);
+    public void eventAlert(View view2){
+
+        if(DirG.length()>0){
+            db2.abrirBD();
+            db2.InsertReg2(LonG);
+            //db2.InsertReg(LatG,LonG);
+            db2.cerrarBD();
+            Toast.makeText(this,"Alerta generada correctamente",Toast.LENGTH_SHORT).show();
+            this.finish();
+        }
+        else{
+            Toast.makeText(this,"Esperando ubicación",Toast.LENGTH_SHORT).show();
+        }
+        this.finish();
     }
 }

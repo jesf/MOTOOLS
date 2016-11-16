@@ -28,7 +28,9 @@
         android:id="@+id/LA"
         android:layout_below="@+id/LO"
         android:layout_alignLeft="@+id/LO"
-        android:layout_alignStart="@+id/LO" />
+        android:layout_alignStart="@+id/LO"
+        android:layout_alignRight="@+id/LO"
+        android:layout_alignEnd="@+id/LO" />
 
     <Button
         android:text="ESTABLECER"
@@ -40,7 +42,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp" />
+        android:layout_marginStart="23dp"
+        android:onClick="eventEst" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -63,7 +66,8 @@
         android:layout_alignLeft="@+id/imageView6"
         android:layout_alignStart="@+id/imageView6"
         android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp" />
+        android:layout_marginStart="19dp"
+        android:onClick="eventAlert" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -77,16 +81,6 @@
         android:layout_alignStart="@+id/EU" />
 
     <TextView
-        android:text="Dirección"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:id="@+id/Dir"
-        android:layout_below="@+id/LA"
-        android:layout_alignLeft="@+id/LA"
-        android:layout_alignStart="@+id/LA" />
-
-    <TextView
         android:text="Longitud: "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,6 +90,61 @@
         android:layout_alignLeft="@+id/IUbi"
         android:layout_alignStart="@+id/IUbi"
         android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp" />
+        android:layout_marginStart="22dp"
+        android:layout_alignRight="@+id/IUbi"
+        android:layout_alignEnd="@+id/IUbi" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text|number"
+        android:ems="10"
+        android:id="@+id/NLO"
+        android:layout_alignTop="@+id/LO"
+        android:layout_toRightOf="@+id/LO"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_above="@+id/LA"
+        android:layout_alignRight="@+id/GU"
+        android:layout_alignEnd="@+id/GU" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text|number"
+        android:ems="10"
+        android:id="@+id/NLA"
+        android:layout_alignTop="@+id/LA"
+        android:layout_alignLeft="@+id/NLO"
+        android:layout_alignStart="@+id/NLO"
+        android:layout_above="@+id/Dir"
+        android:layout_alignRight="@+id/NLO"
+        android:layout_alignEnd="@+id/NLO" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/SDir"
+        android:inputType="text|number"
+        android:layout_below="@+id/Dir"
+        android:layout_marginTop="11dp"
+        android:layout_alignRight="@+id/NLA"
+        android:layout_alignEnd="@+id/NLA"
+        android:layout_alignLeft="@+id/IUbi"
+        android:layout_alignStart="@+id/IUbi" />
+
+    <TextView
+        android:text="Dirección"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/Dir"
+        android:layout_below="@+id/LA"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_toEndOf="@+id/LA"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
 </RelativeLayout>
