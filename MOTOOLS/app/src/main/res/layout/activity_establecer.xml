@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.software2_ucc.proy2.Establecer">
+    tools:context="com.software2_ucc.proy2.Establecer"
+    android:background="@drawable/fondo">
 
     <TextView
         android:text="UBICACIÓN ACTUAL"
@@ -32,81 +33,43 @@
         android:layout_alignRight="@+id/LO"
         android:layout_alignEnd="@+id/LO" />
 
+    <TextView
+        android:text="Longitud: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/LO"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/IUbi"
+        android:layout_alignEnd="@+id/IUbi" />
+
     <Button
         android:text="ESTABLECER"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="32dp"
         android:id="@+id/EU"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:onClick="eventEst"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="23dp"
-        android:layout_marginStart="23dp"
-        android:onClick="eventEst" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/alerta2"
-        android:id="@+id/imageView6"
-        android:layout_above="@+id/GU"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
+        android:background="@drawable/ubi2" />
 
     <Button
         android:text="ALERTA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/GU"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:onClick="eventAlert"
         android:layout_alignBaseline="@+id/EU"
         android:layout_alignBottom="@+id/EU"
-        android:layout_alignLeft="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView6"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:onClick="eventAlert" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ubi2"
-        android:id="@+id/IUbi"
-        android:layout_alignTop="@+id/imageView6"
-        android:layout_alignRight="@+id/EU"
-        android:layout_alignEnd="@+id/EU"
-        android:layout_alignLeft="@+id/EU"
-        android:layout_alignStart="@+id/EU" />
-
-    <TextView
-        android:text="Longitud: "
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="79dp"
-        android:id="@+id/LO"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/IUbi"
-        android:layout_alignStart="@+id/IUbi"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp"
-        android:layout_alignRight="@+id/IUbi"
-        android:layout_alignEnd="@+id/IUbi" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="text|number"
-        android:ems="10"
-        android:id="@+id/NLO"
-        android:layout_alignTop="@+id/LO"
-        android:layout_toRightOf="@+id/LO"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_above="@+id/LA"
-        android:layout_alignRight="@+id/GU"
-        android:layout_alignEnd="@+id/GU" />
+        android:layout_toRightOf="@+id/NLA"
+        android:layout_toEndOf="@+id/NLA"
+        android:background="@drawable/alerta2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -114,12 +77,31 @@
         android:inputType="text|number"
         android:ems="10"
         android:id="@+id/NLA"
-        android:layout_alignTop="@+id/LA"
-        android:layout_alignLeft="@+id/NLO"
-        android:layout_alignStart="@+id/NLO"
-        android:layout_above="@+id/Dir"
-        android:layout_alignRight="@+id/NLO"
-        android:layout_alignEnd="@+id/NLO" />
+        android:layout_alignBaseline="@+id/LA"
+        android:layout_alignBottom="@+id/LA"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text|number"
+        android:ems="10"
+        android:id="@+id/NLO"
+        android:layout_alignBaseline="@+id/LO"
+        android:layout_alignBottom="@+id/LO"
+        android:layout_alignLeft="@+id/NLA"
+        android:layout_alignStart="@+id/NLA" />
+
+    <TextView
+        android:text="Dirección"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Dir"
+        android:layout_marginTop="17dp"
+        android:layout_below="@+id/LA"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -128,23 +110,9 @@
         android:id="@+id/SDir"
         android:inputType="text|number"
         android:layout_below="@+id/Dir"
-        android:layout_marginTop="11dp"
-        android:layout_alignRight="@+id/NLA"
-        android:layout_alignEnd="@+id/NLA"
-        android:layout_alignLeft="@+id/IUbi"
-        android:layout_alignStart="@+id/IUbi" />
-
-    <TextView
-        android:text="Dirección"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:id="@+id/Dir"
-        android:layout_below="@+id/LA"
-        android:layout_alignRight="@+id/textView"
-        android:layout_alignEnd="@+id/textView"
-        android:layout_toEndOf="@+id/LA"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

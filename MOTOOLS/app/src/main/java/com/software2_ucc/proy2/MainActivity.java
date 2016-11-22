@@ -7,17 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.software2_ucc.proy2.Establecer;
 
 public class MainActivity extends AppCompatActivity {
-    Button est, env, cerrar;TextView salida;
+    Button est, uti, cerrar;TextView salida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        salida=(TextView)findViewById(R.id.sal);
-        est = (Button) findViewById(R.id.est);
+        est = (Button) findViewById(R.id.parq);
         est.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(est);
             }
         });
-        env=(Button)findViewById(R.id.env);
-        env.setOnClickListener(new View.OnClickListener() {
+        uti=(Button)findViewById(R.id.util);
+        uti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent env=new Intent(MainActivity.this,Alerta.class);
-                //startActivity(env);
+                Intent env=new Intent(MainActivity.this,UtilActivity.class);
+                startActivity(env);
             }
         });
         cerrar=(Button)findViewById(R.id.cerrar);
@@ -40,6 +38,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        //salida.setText(Establecer.);
     }
 }

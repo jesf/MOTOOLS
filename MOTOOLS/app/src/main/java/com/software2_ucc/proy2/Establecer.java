@@ -29,6 +29,7 @@ import java.util.Locale;
 public class Establecer extends AppCompatActivity {
 
     TextView Long,Lat,Dir;Double LatG,LonG;String DirG;
+    public Double LatEst,LonEst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,12 +127,11 @@ public class Establecer extends AppCompatActivity {
         }
     }
 
-    UsuarioSQLiteHelper db1=new UsuarioSQLiteHelper(this,"DBUbi",null,1);
+
     public void eventEst(View view){
         if(DirG.length()>0){
-            db1.abrirBD();
-            db1.InsertReg(LatG,LonG);
-            db1.cerrarBD();
+            LatEst=LatG;
+            LonEst=LonG;
             Toast.makeText(this,"Ubicación establecida correctamente",Toast.LENGTH_SHORT).show();
             this.finish();
         }
@@ -141,14 +141,14 @@ public class Establecer extends AppCompatActivity {
         this.finish();
 
     }
-    UsuarioSQLiteHelper db2=new UsuarioSQLiteHelper(this,"DBAlert",null,1);
+    UsuarioSQLiteHelper db=new UsuarioSQLiteHelper(this,"DBAlert",null,1);
     public void eventAlert(View view2){
 
         if(DirG.length()>0){
-            db2.abrirBD();
-            db2.InsertReg2(LonG);
+            db.abrirBD();
+            db.InsertReg2(LonG);
             //db2.InsertReg(LatG,LonG);
-            db2.cerrarBD();
+            db.cerrarBD();
             Toast.makeText(this,"Alerta generada correctamente",Toast.LENGTH_SHORT).show();
             this.finish();
         }
@@ -157,4 +157,5 @@ public class Establecer extends AppCompatActivity {
         }
         this.finish();
     }
+
 }

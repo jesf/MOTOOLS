@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Establecer" />
+        <activity android:name=".UtilActivity"></activity>
     </application>
 
 </manifest>
