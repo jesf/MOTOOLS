@@ -1,0 +1,17 @@
+﻿Megan (22/7/2019 17:07:14): Thanks for using DigiCert Live Chat! You are now chatting with Megan. 
+Megan (22/7/2019 17:07:20): Hello and thank you for contacting us today. It'll be my pleasure to assist you. How are you today? 
+Me (22/7/2019 17:07:34): Hello 
+Me (22/7/2019 17:08:40): I need a SAN certificate, but I am not sure about how generate the CSR 
+Megan (22/7/2019 17:08:54): what kind of software / server are you using? 
+Me (22/7/2019 17:09:59): Deploy a VPN portal 
+Megan (22/7/2019 17:10:34): what kind of VPN portal? 
+Me (22/7/2019 17:10:45): SSL VPN Portal 
+Me (22/7/2019 17:10:50): with Palo Alto NGFW 
+Megan (22/7/2019 17:14:22): I would recommend following their documentation 
+Megan (22/7/2019 17:14:22): https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000ClSxCAK 
+Me (22/7/2019 17:20:11): Ok, but... In my case I need the CRS to a four subdomains 
+Me (22/7/2019 17:21:00): Can I get a trial certificate with digicert? 
+Megan (22/7/2019 17:21:28): any certificate can be canceled within 30 days for a fullrefund 
+Me (22/7/2019 17:25:05): Interesting, 
+Me (22/7/2019 17:25:09): I will do 
+Me (22/7/2019 17:25:17): Thanks for your information 
